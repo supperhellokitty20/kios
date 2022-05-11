@@ -1,10 +1,9 @@
 import { useState, useEffect } from "react";
-import { useSession } from "next-auth/client";
-
+import { useSession , getSession} from "next-auth/client";
+import Layout from "../components/layout"
 export default function Secret() {
   const [session, loading] = useSession();
   const [content, setContent] = useState();
-
   useEffect(() => {
     const fetchData = async () => {
       const res = await fetch("/api/secret");
@@ -37,3 +36,4 @@ export default function Secret() {
     </main>
   );
 }
+

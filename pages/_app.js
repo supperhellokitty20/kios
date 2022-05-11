@@ -1,9 +1,21 @@
 import "../styles/globals.css";
 import { Provider } from "next-auth/client";
-function MyApp({ Component, pageProps }) {
+import { ChakraProvider } from "@chakra-ui/react";
+import Layout from "../components/layout";
+function MyApp({ 
+  Component, 
+  pageProps:{ 
+    session,
+    ...pageProps
+}}) 
+{
   return (
     <Provider session={pageProps.session}>
-      <Component {...pageProps} />
+      <ChakraProvider> 
+        <Layout>
+           <Component {...pageProps} />
+        </Layout>
+      </ChakraProvider>
     </Provider>
   );
 }
