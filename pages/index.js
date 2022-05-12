@@ -10,7 +10,7 @@ import { getSession ,signIn, signOut, useSession } from "next-auth/client";
 export default function Home() {
   const [session, loading] = useSession();
   if(session && session !==undefined) {
-    console.table(session.user) ;
+    console.table(session) ;
   }
   return (
     <div className={styles.container}>
@@ -27,7 +27,7 @@ export default function Home() {
         )}
         {session && (
           <>
-            Signed in as {session.user.email} 
+            <p> Signed in as {session.user.id} </p>
             <div>You can now access our super secret pages</div>
             <Button mb={6} colorScheme="orange">
               <Link href="/secret">Go to dashboard</Link>

@@ -36,7 +36,6 @@ export default function Nav() {
   const [session , loading] = useSession() ;
   const { colorMode, toggleColorMode } = useColorMode();
   const { isOpen, onOpen, onClose } = useDisclosure();
-  console.log("session: "+session) ;
   if(session!=null){
   return (
     <>
@@ -94,6 +93,6 @@ export default function Nav() {
     )
   }
   return(
-    <></>
+    <>NOT LOGIN</>
   )
 }

@@ -1,15 +1,7 @@
 import { Button, Flex, Input, Heading, useColorMode, useColorModeValue } from '@chakra-ui/react'
-import { getProviders, signIn,getSession } from 'next-auth/client'
-let providers ;
-async function getProviderss() {
-    providers = await getProviders()
-    console.log(providers)
-    return providers
-}
+import { signIn,getSession } from 'next-auth/client'
 export default function AuthForm() {
     const { toggleColorMode } = useColorMode()
-    const providers = getProviderss(); 
-    console.log(providers.id) ;
     const formBackGround = useColorModeValue('gray.100', 'gray.700')
     return (
         <Flex height="100vh" alignItems="center" justifyContent="center">
