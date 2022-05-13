@@ -22,13 +22,7 @@ export default function Home() {
     console.table(session) ;
   }
   return (
-    <div className={styles.container}>
-      <Head>
-        <title>Home brewkios</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
-      <main className={styles.main}>
+    <> 
         {session && (
           <>
             <p> Signed in as {session.user.id} </p>
@@ -41,8 +35,8 @@ export default function Home() {
             })}>sign out</Button>
           </>
         )}
+        {loading && <p>Loading...</p>}  
         { !session && <NotLoggedIn /> }
-      </main>
-    </div>
+    </> 
   )
           } 
