@@ -1,4 +1,5 @@
 import React, { ReactNode } from 'react';
+import { signOut, useSession } from 'next-auth/client'
 import {
   IconButton,
   Avatar,
@@ -39,8 +40,8 @@ const LinkItems = [
   { name: 'Home', icon: FiHome, href: '/' },
   { name: 'Product', icon: FiTrendingUp, href: '/product' },
   { name: 'Order', icon: FiCompass, href: '/order' },
-  { name: 'Sales', icon: FiStar, href: '/sales' },
-  { name: 'Customer', icon: FiSettings, href: '/customer' },
+  { name: 'Sales', icon: FiStar , href : "/sales" },
+  { name: 'Customer', icon: FiSettings , href : "/customer" },
 ];
 
 export default function SidebarWithHeader({
@@ -139,7 +140,6 @@ const NavItem = ({ icon, children,href,...rest }) => {
     </Link>
   );
 };
-import { signOut, useSession } from 'next-auth/client'
 const MobileNav = ({ onOpen,session ,...rest }) => {
     return (
       <Flex
@@ -210,7 +210,9 @@ const MobileNav = ({ onOpen,session ,...rest }) => {
                 <MenuItem>Settings</MenuItem>
                 <MenuItem>Billing</MenuItem>
                 <MenuDivider />
-                <MenuItem onClick={()=>{signOut() }}>Sign out</MenuItem>
+                <MenuItem onClick={()=>{signOut({ 
+                  callbackUrl: '/',
+                }) }}>Sign out</MenuItem>
               </MenuList>
             </Menu>
           </Flex>
