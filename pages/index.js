@@ -7,6 +7,15 @@ import AuthForm from "../components/AuthForm"
 import Layout from "../components/layout"
 import { getSession ,signIn, signOut, useSession } from "next-auth/client";
 
+const NotLoggedIn = () => {
+  return ( 
+    <>
+      <h1>Not logged in</h1> 
+      <AuthForm />
+    </>
+  ) 
+} 
+ 
 export default function Home() {
   const [session, loading] = useSession();
   if(session && session !==undefined) {
@@ -20,11 +29,6 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
-        {!session && (
-          <>
-            <AuthForm/> 
-          </>
-        )}
         {session && (
           <>
             <p> Signed in as {session.user.id} </p>
@@ -37,6 +41,7 @@ export default function Home() {
             })}>sign out</Button>
           </>
         )}
+        { !session && <NotLoggedIn /> }
       </main>
     </div>
   )
