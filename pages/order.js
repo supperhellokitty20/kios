@@ -7,3 +7,4 @@ export default function Order() {
         </>
     )
     } 
+    Order.auth=true ;

@@ -10,8 +10,7 @@ export default function Layout({ children }) {
       window.location.href = "/"
     }
   })
-  if(session!=null && session !=undefined){
-    console.log(session)  ;
+  if(session){ 
     return (
       <>
       <Nav session={session}>
@@ -27,16 +26,19 @@ export default function Layout({ children }) {
       </Nav> 
       </>
     )
-  } 
+  }
   if(loading){ 
-    return <>
-      <p>Loading ...</p>
-    </>
-  }
-  //Not logged in user
-  return (
+    return ( 
     <>
-    <AuthForm/>
+      <p>Loading ...</p>
+      {children}
     </>
-  ) 
+    )
   }
+  return ( 
+    <>
+    {children}
+    </>
+  )
+  } 
+  //Not logged in user

@@ -7,7 +7,7 @@ export default function Secret() {
   useEffect(() => {
     const fetchData = async () => {
       const res = await fetch("/api/secret");
-      const json = await res.json();
+      const json = await res.text();
 
       if (json.content) {
         setContent(json.content);
@@ -20,20 +20,18 @@ export default function Secret() {
 
   if (!session) {
     return (
-      <main>
+      <>
         <div>
           <h1>You aren't signed in, please sign in first</h1>
         </div>
-      </main>
+      </>
     );
   }
   return (
-    <main>
-      <div>
+    <>
         <h1> Protected Page</h1>
         <p>{content}</p>
-      </div>
-    </main>
+    </>
   );
 }
 

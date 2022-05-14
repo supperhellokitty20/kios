@@ -8,7 +8,6 @@ export default async (req, res) => {
   //Basic auth check
   if (session) {
     res.send({
-      //Also start query for user data from db 
       content: "Dash board with secret content",
     });
   } else {

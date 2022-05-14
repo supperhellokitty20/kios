@@ -2,7 +2,7 @@ import { Button, Flex, Input, Heading, useColorMode, useColorModeValue } from '@
 import { signIn,getSession } from 'next-auth/client'
 export default function AuthForm() {
     const { toggleColorMode } = useColorMode()
-    const formBackGround = useColorModeValue('gray.100', 'gray.700')
+    const formBackGround = useColorModeValue('gray.100', 'gray.900')
     return (
         <Flex height="100vh" alignItems="center" justifyContent="center">
             <Flex direction="column" background={formBackGround} p={12}
