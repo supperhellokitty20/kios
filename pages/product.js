@@ -4,8 +4,8 @@ import ProductDashboard from "../components/productDashboard";
 export default function Product() {
     return (
         <>
-            <h1>Product</h1>
             <ProductDashboard />
         </>
     )
     } 
+Product.auth=true ;
